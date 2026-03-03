@@ -1,14 +1,60 @@
-# Welcome to your CDK TypeScript project
+# serverless-cdk-basics
 
-This is a blank project for CDK development with TypeScript.
+Infrastructure as Code project built with AWS CDK v2 and TypeScript. This repository provisions a minimal serverless backend using AWS Lambda and DynamoDB, focusing on core CDK patterns, IAM permissions, and repeatable stack deployment.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+## Architecture Overview
 
-## Useful commands
+This stack provisions:
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `npx cdk deploy`  deploy this stack to your default AWS account/region
-* `npx cdk diff`    compare deployed stack with current state
-* `npx cdk synth`   emits the synthesized CloudFormation template
+- AWS Lambda function using NodejsFunction bundling
+- DynamoDB table for persistent storage
+- IAM permissions defined using CDK grant helpers
+- Stack outputs for service access
+
+The design is intentionally minimal to demonstrate clean infrastructure definition and lifecycle management.
+
+## Technology Stack
+
+- AWS CDK v2
+- TypeScript
+- AWS Lambda
+- DynamoDB
+- AWS SDK v3
+
+## Repository Structure
+
+- bin  
+  CDK application entry point
+
+- lib  
+  CDK stack definitions
+
+- lambdas  
+  Lambda handler implementations
+
+- seed and shared  
+  Seed data and shared utilities when applicable
+
+## Installation
+
+npm install
+
+## Deployment
+
+cdk deploy
+
+The deployment process synthesises and provisions all infrastructure resources defined in the stack.
+
+## Stack Lifecycle Management
+
+To remove all provisioned infrastructure and avoid unnecessary cost:
+
+cdk destroy
+
+## Key Concepts Demonstrated
+
+- Declarative infrastructure with AWS CDK
+- Lambda deployment using CDK NodejsFunction
+- DynamoDB table provisioning
+- IAM least privilege via CDK grants
+- Repeatable environment provisioning
